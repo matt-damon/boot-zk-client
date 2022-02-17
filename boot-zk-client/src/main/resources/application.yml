@@ -1,0 +1,8 @@
+curator:
+  retryCount: 5
+  elapsedTimeMs: 50000
+  connectString: 192.168.35.128:2181,182.168.35.129:2181
+  sessionTimoutMs: 60000
+  connectionTimeoutMs: 50000
+
+
