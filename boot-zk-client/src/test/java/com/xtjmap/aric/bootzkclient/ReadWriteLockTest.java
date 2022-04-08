@@ -5,6 +5,8 @@ import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.locks.InterProcessMutex;
 import org.apache.curator.framework.recipes.locks.InterProcessReadWriteLock;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
@@ -16,7 +18,9 @@ import javax.annotation.Resource;
  */
 @Slf4j
 @SpringBootTest
-public class testReadWriteLock {
+public class ReadWriteLockTest {
+
+    Logger log = LoggerFactory.getLogger(ReadWriteLockTest.class);
 
     @Resource
     CuratorFramework client;
@@ -25,14 +29,14 @@ public class testReadWriteLock {
     void testGetReadLock() throws Exception {
         // 读写锁
         InterProcessReadWriteLock interProcessReadWriteLock =
-                new InterProcessReadWriteLock(client, "/test/lock");
+                new InterProcessReadWriteLock(client, "/lock1");
         // 获取读锁对象
         InterProcessMutex interProcessLock = interProcessReadWriteLock.readLock();
         log.info("等待获取读锁对象");
         // 获取锁
         interProcessLock.acquire();
         for (int i=0; i<100; ++i){
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             System.out.println(i);
         }
         // 释放锁
@@ -50,14 +54,14 @@ public class testReadWriteLock {
     void testGetWriteLock() throws Exception {
         // 读写锁
         InterProcessReadWriteLock interProcessReadWriteLock =
-                new InterProcessReadWriteLock(client, "/test/lock");
+                new InterProcessReadWriteLock(client, "/lock1");
         // 获取读锁对象
         InterProcessMutex interProcessLock = interProcessReadWriteLock.writeLock();
         log.info("等待获取写锁对象");
         // 获取锁
         interProcessLock.acquire();
         for (int i=0; i<100; ++i){
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             System.out.println(i);
         }
         // 释放锁
@@ -65,3 +69,4 @@ public class testReadWriteLock {
         log.info("等待释放锁");
     }
 }
+

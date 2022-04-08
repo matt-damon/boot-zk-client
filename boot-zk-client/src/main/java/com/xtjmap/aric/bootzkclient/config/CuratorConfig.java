@@ -8,10 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.Resource;
 
-/**
- * @author AricSun
- * @date 2022.02.16 14:56
- */
+
 @Configuration
 public class CuratorConfig {
 
