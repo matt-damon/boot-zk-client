@@ -39,20 +39,20 @@ class BootZkClientApplicationTests {
     }
 
     @Test
-    void testGetData() throws Exception{
+    void testGetData() throws Exception {
         byte[] bytes = curatorFramework.getData().forPath("/curator-node");
         log.info(new String(bytes));
     }
 
     @Test
-    void testSetData() throws Exception{
+    void testSetData() throws Exception {
         curatorFramework.setData().forPath("/curator-node", "changed".getBytes());
         testGetData();
     }
 
     // 一同创建父节点
     @Test
-    void testCreateNodeWithParent() throws Exception{
+    void testCreateNodeWithParent() throws Exception {
         String pathWithParent = "/node-parent/sub-node-1";
         String path = curatorFramework.create().creatingParentsIfNeeded().forPath(pathWithParent);
         log.info(path);

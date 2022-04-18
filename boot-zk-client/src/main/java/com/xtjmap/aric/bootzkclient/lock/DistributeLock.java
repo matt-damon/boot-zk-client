@@ -20,7 +20,7 @@ public class DistributeLock {
     private String waitPath;
     private String curMode;
 
-    public DistributeLock () throws IOException, InterruptedException, KeeperException {
+    public DistributeLock() throws IOException, InterruptedException, KeeperException {
         //获取连接
         zk = new ZooKeeper(connectString, sessionTimeout, new Watcher() {
             @Override

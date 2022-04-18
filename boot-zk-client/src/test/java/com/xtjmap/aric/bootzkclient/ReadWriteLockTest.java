@@ -13,6 +13,7 @@ import javax.annotation.Resource;
 
 /**
  * 客户端实现读写锁
+ *
  * @author AricSun
  * @date 2022.02.17 10:31
  */
@@ -35,7 +36,7 @@ public class ReadWriteLockTest {
         log.info("等待获取读锁对象");
         // 获取锁
         interProcessLock.acquire();
-        for (int i=0; i<100; ++i){
+        for (int i = 0; i < 100; ++i) {
             Thread.sleep(2000);
             System.out.println(i);
         }
@@ -45,7 +46,7 @@ public class ReadWriteLockTest {
     }
 
     @Test
-    // 用来测试读锁的共享性，即读锁是人人可以读。单个方法不能重复运行
+        // 用来测试读锁的共享性，即读锁是人人可以读。单个方法不能重复运行
     void testRepeatGetReadLock() throws Exception {
         testGetReadLock();
     }
@@ -60,7 +61,7 @@ public class ReadWriteLockTest {
         log.info("等待获取写锁对象");
         // 获取锁
         interProcessLock.acquire();
-        for (int i=0; i<100; ++i){
+        for (int i = 0; i < 100; ++i) {
             Thread.sleep(2000);
             System.out.println(i);
         }

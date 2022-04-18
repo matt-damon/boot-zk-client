@@ -38,20 +38,20 @@
             </exclusions>
         </dependency>
 
-<!--        zookeeper-->
+        <!--        zookeeper-->
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
             <version>3.7.0</version>
         </dependency>
-<!--        curator-->
+        <!--        curator-->
         <!-- https://mvnrepository.com/artifact/org.apache.curator/curator-framework -->
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-framework</artifactId>
             <version>5.2.0</version>
         </dependency>
-<!--        Curator封装Zookeeper的典型场景使用都放在了recipes包中, 比如监听器-->
+        <!--        Curator封装Zookeeper的典型场景使用都放在了recipes包中, 比如监听器-->
         <!-- https://mvnrepository.com/artifact/org.apache.curator/curator-recipes -->
         <dependency>
             <groupId>org.apache.curator</groupId>
